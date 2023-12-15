@@ -1,12 +1,12 @@
 import cloneDeep from "lodash/cloneDeep.js"
 
-/**
- * 生成树节点
- * @param arr
- * @param keyField
- * @param childField
- */
-const toTree = ({arr = [], keyField = "id", children = "children", pid = "pid",callback=()=>{}}:{arr:Array<any>;keyField?:string;children?:string;pid?:string;callback?:(item) => void}) => {
+const toTree = ({
+    arr = [],
+    keyField = "id",
+    children = "children",
+    pid = "pid",
+    callback = () => { }
+}: { arr: Array<any>; keyField?: string; children?: string; pid?: string; callback?}) => {
     const data = cloneDeep(arr)
     const map: any = {}
     data.forEach(function (item: any) {
@@ -25,28 +25,24 @@ const toTree = ({arr = [], keyField = "id", children = "children", pid = "pid",c
     return new_data
 }
 
-/**
- * 生成链路
- * @param arr
- * @param id
- */
-const getObjectPath = ({arr = <any>[], id = ""}) => {
+const getObjectPath = ({ arr = <any>[], id = "" }) => {
     const data = cloneDeep(arr)
     for (const i in arr) {
-        // eslint-disable-next-line no-prototype-builtins
-        if (data.hasOwnProperty(i)) {
+        if (Object.prototype.hasOwnProperty.call(arr, i)) {
             if (arr[i].id === id) {
                 return [data[i]]
             }
             if (data[i].children) {
-                const node: any = getObjectPath({arr: data[i].children, id})
+                const node: any = getObjectPath({ arr: data[i].children, id })
                 if (node !== undefined) {
                     return node.concat(data[i])
                 }
             }
         }
     }
+    return null
 }
+
 
 
 function htmlElementClass(state: boolean, clsName: string, target?: HTMLElement) {
@@ -107,15 +103,14 @@ const clipboardCopy = (text: string) => {
 }
 
 
-const rdmRgbColor = () =>{
-    const arr:any = []
+const rdmRgbColor = () => {
+    const arr: any = []
     for (let i = 0; i < 3; i++) {
         arr.push(Math.floor(Math.random() * 128 + 64))
         arr.push(Math.floor(Math.random() * 128 + 128))
     }
     const [r, g, b] = arr
-    return `#${r.toString().length > 1 ? r.toString() : "0" + r.toString()}${g.toString().length > 1 ? g.toString() : "0" + g.toString()}${
-        b.toString().length > 1 ? b.toString() : "0" + b.toString()}`
+    return `#${r.toString().length > 1 ? r.toString() : "0" + r.toString()}${g.toString().length > 1 ? g.toString() : "0" + g.toString()}${b.toString().length > 1 ? b.toString() : "0" + b.toString()}`
 }
 
 

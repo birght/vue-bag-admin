@@ -12,7 +12,7 @@ const createColumns = ({compHandle}): DataTableColumns => {
         },
         {
             type: "expand",
-            expandable: (rowData) => true,
+            expandable: () => true,
             renderExpand: (rowData) => {
                 return `${rowData.des}`
             }

@@ -1,4 +1,4 @@
-import {DataTableColumns, NButton, NPopconfirm, useMessage} from "naive-ui"
+import {DataTableColumns, NButton, NPopconfirm} from "naive-ui"
 import {h} from "vue"
 
 const createColumns = ({compHandle}): DataTableColumns => {

@@ -2,4 +2,4 @@ const setupWow = ()=>{
 
 }
 
-export default setupWow;
+export default setupWow

@@ -42,8 +42,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import { useMessage } from "naive-ui"
-import {useRoute,useRouter} from "vue-router"
+import {useRouter} from "vue-router"
 const options = [
     {
         label: "杰·盖茨比",
@@ -96,7 +95,7 @@ export default defineComponent({
         const router = useRouter()
         return {
             options,
-            handleSelect(key) {
+            handleSelect() {
                 router.push({path:"/about"})
             }
         }

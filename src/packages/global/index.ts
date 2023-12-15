@@ -1,5 +1,12 @@
+/*
+ * @Author: shiwanyu shi.wy@neusoft.com
+ * @Date: 2023-12-14 10:33:15
+ * @LastEditors: shiwanyu shi.wy@neusoft.com
+ * @LastEditTime: 2023-12-15 15:33:20
+ * @FilePath: \vue-bag-admin\src\packages\global\index.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import {breakpointsTailwind, useBreakpoints, useEventListener, useThrottleFn} from "@vueuse/core"
-import type {App} from "vue"
 import appStore from "@/packages/pinia/app.ts"
 import {htmlElementClass} from "@/packages/utils/utils.ts"
 
